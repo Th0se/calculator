@@ -1,0 +1,8 @@
+.calculatorButton {
+    display: grid;
+    grid-template-columns: repeat(5, 2fr);
+    grid-template-rows: repeat(3, 2fr);
+    width: 500px;
+    height: 500px;
+    margin: auto;
+}
