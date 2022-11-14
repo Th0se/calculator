@@ -144,16 +144,21 @@ result.addEventListener(`click`, () => {
     let operator = (processed[1]);
     let num2 = parseInt(processed[2]);
     if (operator === `*`) {
-        displayedSequence = multiply(num1, num2);
+        displayedSequence = String(multiply(num1, num2));
         display.textContent = displayedSequence;
     } else if (operator === `+`) {
-        displayedSequence = add(num1, num2);
+        displayedSequence = String(add(num1, num2));
         display.textContent = displayedSequence;
     } else if (operator === `-`) {
-        displayedSequence = subtract(num1, num2);
+        displayedSequence = String(subtract(num1, num2));
         display.textContent = displayedSequence;
     } else if (operator === `÷`) {
-        displayedSequence = divide(num1, num2);
+        if (num2 === 0) {
+            displayedSequence = `No, dumass!`;
+            display.textContent = displayedSequence;
+        } else {
+        displayedSequence = String(divide(num1, num2));
         display.textContent = displayedSequence;
+        };
     };
 });
