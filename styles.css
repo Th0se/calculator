@@ -1,3 +1,7 @@
+* {
+    font-size: large;
+}
+
 #calculatorDisplay {
     width: 500px;
     height: 150px;
@@ -5,12 +9,21 @@
     margin: auto;
 }
 
+#calculatorDeleteAndReset {
+    margin: auto;
+    border: 2px solid black;
+    height: 100px;
+    width: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+}
+
 #calculatorButton {
     display: grid;
     grid-template-columns: repeat(5, 2fr);
     grid-template-rows: repeat(3, 2fr);
     width: 500px;
-    height: 500px;
+    height: 400px;
     margin: auto;
     border: 2px solid black;
 }
