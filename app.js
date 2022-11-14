@@ -140,25 +140,62 @@ division.addEventListener(`click`, () => {
 const result = document.querySelector(`#result`);
 result.addEventListener(`click`, () => {
     let processed = displayedSequence.split(` `);
-    let num1 = parseInt(processed[0]);
-    let operator = (processed[1]);
-    let num2 = parseInt(processed[2]);
-    if (operator === `*`) {
-        displayedSequence = String(multiply(num1, num2));
-        display.textContent = displayedSequence;
-    } else if (operator === `+`) {
-        displayedSequence = String(add(num1, num2));
-        display.textContent = displayedSequence;
-    } else if (operator === `-`) {
-        displayedSequence = String(subtract(num1, num2));
-        display.textContent = displayedSequence;
-    } else if (operator === `÷`) {
-        if (num2 === 0) {
-            displayedSequence = `No, dumass!`;
+    if (processed.length === 3) {
+        let num1 = parseInt(processed[0]);
+        let operator = (processed[1]);
+        let num2 = parseInt(processed[2]);
+        if (operator === `*`) {
+            displayedSequence = String(multiply(num1, num2));
             display.textContent = displayedSequence;
-        } else {
-        displayedSequence = String(divide(num1, num2));
-        display.textContent = displayedSequence;
+        } else if (operator === `+`) {
+            displayedSequence = String(add(num1, num2));
+            display.textContent = displayedSequence;
+        } else if (operator === `-`) {
+            displayedSequence = String(subtract(num1, num2));
+            display.textContent = displayedSequence;
+        } else if (operator === `÷`) {
+            if (num2 === 0) {
+                displayedSequence = `No, dumass!`;
+                display.textContent = displayedSequence;
+            } else {
+            displayedSequence = String(divide(num1, num2));
+            display.textContent = displayedSequence;
+            };
         };
-    };
+    } else {
+        let num1 = parseInt(processed[0]);
+        let m = 1;
+        let operator = processed[m];
+        let n = 2;
+        let num2 = parseInt(processed[n]);
+        while (n < processed.length) {
+            if (operator === `+`) {
+                num1 = add(num1, num2);
+                m = m + 2;
+                n = n + 2;
+                operator = processed[m];
+                num2 = parseInt(processed[n]);
+            } else if (operator === `-`) {
+                num1 = subtract(num1, num2);
+                m = m + 2;
+                n = n + 2;
+                operator = processed[m];
+                num2 = parseInt(processed[n]);
+            } else if (operator === `÷`) {
+                num1 = divide(num1, num2);
+                m = m + 2;
+                n = n + 2;
+                operator = processed[m];
+                num2 = parseInt(processed[n]);
+            } else {
+                num1 = multiply(num1, num2);
+                m = m + 2;
+                n = n + 2;
+                operator = processed[m];
+                num2 = parseInt(processed[n]);
+            };
+        };
+        displayedSequence = String(num1);
+        display.textContent = displayedSequence;
+    }
 });
