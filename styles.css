@@ -4,9 +4,12 @@
 
 #calculatorDisplay {
     width: 500px;
-    height: 150px;
+    height: 100px;
     border: 2px solid black;
     margin: auto;
+    font-size: larger;
+    display: flex;
+    align-items: center;
 }
 
 #calculatorDeleteAndReset {
