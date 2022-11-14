@@ -36,6 +36,23 @@ let displayedSequence = ``; /* I decided to put the numbers and operators as a s
 const display = document.querySelector(`#calculatorDisplay`);
 display.textContent = displayedSequence;
 
+const deleteButton = document.querySelector(`#deleteButton`);
+deleteButton.addEventListener(`click`, () => {
+    if (displayedSequence.charAt(displayedSequence.length - 1) === ` `) {
+        displayedSequence = displayedSequence.slice(0, -2);
+        display.textContent = displayedSequence;
+    } else {
+        displayedSequence = displayedSequence.slice(0, -1);
+        display.textContent = displayedSequence;
+    };
+});
+
+const resetButton = document.querySelector(`#resetButton`);
+resetButton.addEventListener(`click`, () => {
+    displayedSequence = ``;
+    display.textContent = displayedSequence;
+});
+
 const number1 = document.querySelector(`#b1`);
 number1.addEventListener(`click`, () => {
     displayedSequence = displayedSequence + `1`;
@@ -116,6 +133,27 @@ multiplication.addEventListener(`click`, () => {
 
 const division = document.querySelector(`#division`);
 division.addEventListener(`click`, () => {
-    displayedSequence = displayedSequence + ` / `;
+    displayedSequence = displayedSequence + ` ÷ `;
     display.textContent = displayedSequence;
+});
+
+const result = document.querySelector(`#result`);
+result.addEventListener(`click`, () => {
+    let processed = displayedSequence.split(` `);
+    let num1 = parseInt(processed[0]);
+    let operator = (processed[1]);
+    let num2 = parseInt(processed[2]);
+    if (operator === `*`) {
+        displayedSequence = multiply(num1, num2);
+        display.textContent = displayedSequence;
+    } else if (operator === `+`) {
+        displayedSequence = add(num1, num2);
+        display.textContent = displayedSequence;
+    } else if (operator === `-`) {
+        displayedSequence = subtract(num1, num2);
+        display.textContent = displayedSequence;
+    } else if (operator === `÷`) {
+        displayedSequence = divide(num1, num2);
+        display.textContent = displayedSequence;
+    };
 });
