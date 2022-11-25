@@ -3,3 +3,5 @@
 A simple calculator made with Javascript.
 ## Not for scientific usage.
 Also not for everyday use, this calculator was built to demonstrate Javascript, not to accurately calculate the given inputs.
+## Live demo
+https://th0se.github.io/calculator/
