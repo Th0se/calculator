@@ -1,4 +1,5 @@
-# calculator
+# Calculator
 ## A simple GUI calculator
-Note that this only serves the basic operations, meaning it
-cannot prioritise operations which should be prioritised.
+A simple calculator made with Javascript.
+## Not for scientific usage.
+Also not for everyday use, this calculator was built to demonstrate Javascript, not to accurately calculate the given inputs.
